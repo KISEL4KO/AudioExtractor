@@ -12,30 +12,103 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 from extractor import audio_extractor
 import os
 import subprocess
+import glob
 
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
-        MainWindow.resize(499, 600)
+        MainWindow.resize(438, 586)
+        MainWindow.setStyleSheet("background-color: rgb(151,188, 114);")
         self.centralwidget = QtWidgets.QWidget(MainWindow)
         self.centralwidget.setObjectName("centralwidget")
         self.pushButton = QtWidgets.QPushButton(self.centralwidget)
-        self.pushButton.setGeometry(QtCore.QRect(180, 450, 141, 81))
+        self.pushButton.setGeometry(QtCore.QRect(150, 460, 151, 51))
+        self.pushButton.setStyleSheet("QPushButton{\n"
+                                      "    background-color: rgb(130, 170, 90); \n"
+                                      "    border: none;\n"
+                                      "    padding-top: 5px;\n"
+                                      "    color: rgb(226, 234, 216);\n"
+                                      "    border-left: 1px solid rgb(110, 144, 76);\n"
+                                      "    border-right: 1px solid rgb(110, 144, 7 );\n"
+                                      "    border-bottom: 5px solidrgb(110, 144, 76);\n"
+                                      "}\n"
+                                      "QPushButton:hover {\n"
+                                      "    background-color: rgb(138, 181, 96); \n"
+                                      "    borderleft: 1px solidrgb(110, 144, 76); \n"
+                                      "    border-right: 1px soldrgb(110, 144, 76); \n"
+                                      "    border-bottom: 5px sold rgb(110, 144, 76);\n"
+                                      "}\n"
+                                      "QPushButton:pressed{\n"
+                                      "    background-color: rgb(120, 157, 83);\n"
+                                      "     border-left: 1px solid rgb(110, 144, 76);\n"
+                                      "     border-right: 1px solidrgb(110, 144, 76); \n"
+                                      "    border-top: 5px sold rgb(110, 144, 76); \n"
+                                      "    padding-top: -5px;\n"
+                                      "     border-bottom: none;\n"
+                                      "}")
         self.pushButton.setObjectName("pushButton")
         self.pushButton_2 = QtWidgets.QPushButton(self.centralwidget)
-        self.pushButton_2.setGeometry(QtCore.QRect(40, 480, 101, 31))
+        self.pushButton_2.setGeometry(QtCore.QRect(20, 470, 101, 31))
+        self.pushButton_2.setStyleSheet("QPushButton{\n"
+                                        "    background-color: rgb(130, 170, 90); \n"
+                                        "    border: none;\n"
+                                        "    padding-top: 5px;\n"
+                                        "    color: rgb(226, 234, 216);\n"
+                                        "    border-left: 1px solid rgb(110, 144, 76);\n"
+                                        "    border-right: 1px solid rgb(110, 144, 7 );\n"
+                                        "    border-bottom: 5px solidrgb(110, 144, 76);\n"
+                                        "}\n"
+                                        "QPushButton:hover {\n"
+                                        "    background-color: rgb(138, 181, 96); \n"
+                                        "    borderleft: 1px solidrgb(110, 144, 76); \n"
+                                        "    border-right: 1px soldrgb(110, 144, 76); \n"
+                                        "    border-bottom: 5px sold rgb(110, 144, 76);\n"
+                                        "}\n"
+                                        "QPushButton:pressed{\n"
+                                        "    background-color: rgb(120, 157, 83);\n"
+                                        "     border-left: 1px solid rgb(110, 144, 76);\n"
+                                        "     border-right: 1px solidrgb(110, 144, 76); \n"
+                                        "    border-top: 5px sold rgb(110, 144, 76); \n"
+                                        "    padding-top: -5px;\n"
+                                        "     border-bottom: none;\n"
+                                        "}")
         self.pushButton_2.setObjectName("pushButton_2")
         self.pushButton_3 = QtWidgets.QPushButton(self.centralwidget)
-        self.pushButton_3.setGeometry(QtCore.QRect(350, 480, 101, 31))
+        self.pushButton_3.setGeometry(QtCore.QRect(320, 470, 101, 31))
+        self.pushButton_3.setStyleSheet("QPushButton{\n"
+                                        "    background-color: rgb(130, 170, 90); \n"
+                                        "    border: none;\n"
+                                        "    padding-top: 5px;\n"
+                                        "    color: rgb(226, 234, 216);\n"
+                                        "    border-left: 1px solid rgb(110, 144, 76);\n"
+                                        "    border-right: 1px solid rgb(110, 144, 7 );\n"
+                                        "    border-bottom: 5px solidrgb(110, 144, 76);\n"
+                                        "}\n"
+                                        "QPushButton:hover {\n"
+                                        "    background-color: rgb(138, 181, 96); \n"
+                                        "    borderleft: 1px solidrgb(110, 144, 76); \n"
+                                        "    border-right: 1px soldrgb(110, 144, 76); \n"
+                                        "    border-bottom: 5px sold rgb(110, 144, 76);\n"
+                                        "}\n"
+                                        "QPushButton:pressed{\n"
+                                        "    background-color: rgb(120, 157, 83);\n"
+                                        "     border-left: 1px solid rgb(110, 144, 76);\n"
+                                        "     border-right: 1px solidrgb(110, 144, 76); \n"
+                                        "    border-top: 5px sold rgb(110, 144, 76); \n"
+                                        "    padding-top: -5px;\n"
+                                        "     border-bottom: none;\n"
+                                        "}")
         self.pushButton_3.setObjectName("pushButton_3")
         self.label = QtWidgets.QLabel(self.centralwidget)
-        self.label.setGeometry(QtCore.QRect(160, 110, 191, 61))
+        self.label.setGeometry(QtCore.QRect(130, 70, 191, 61))
         self.label.setAutoFillBackground(False)
+        self.label.setStyleSheet("background-color: rgb(130, 170, 90);\n"
+                                 "color: rgb(226, 234, 216); ")
         self.label.setAlignment(QtCore.Qt.AlignCenter)
         self.label.setObjectName("label")
         MainWindow.setCentralWidget(self.centralwidget)
         self.menubar = QtWidgets.QMenuBar(MainWindow)
-        self.menubar.setGeometry(QtCore.QRect(0, 0, 499, 21))
+        self.menubar.setGeometry(QtCore.QRect(0, 0, 438, 21))
         self.menubar.setObjectName("menubar")
         MainWindow.setMenuBar(self.menubar)
         self.statusbar = QtWidgets.QStatusBar(MainWindow)
@@ -54,7 +127,7 @@ class Ui_MainWindow(object):
 
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
-        MainWindow.setWindowTitle(_translate("MainWindow", "MainWindow"))
+        MainWindow.setWindowTitle(_translate("MainWindow", "AudioExtractor"))
         self.pushButton.setText(_translate("MainWindow", "Start"))
         self.pushButton_2.setText(_translate("MainWindow", "Input"))
         self.pushButton_3.setText(_translate("MainWindow", "Output"))
@@ -66,8 +139,23 @@ class Ui_MainWindow(object):
 
     #главная функция
     def start(self):
-        audio_extractor()
-        self.label.setText('Succesfull')
+        video_formats = ['*.mp4', '*.avi', '*.mkv', '*.mov', '*.wmv', '*.flv', '*.mpeg', '*.mpg']
+        # Проверка наличия видеофайлов в директории input
+        def check_for_video_files():
+            input_dir = 'input'
+            if not os.path.exists(input_dir):
+                print(f"Директория {input_dir} не существует")
+                return
+
+            for format in video_formats:
+                video_files = glob.glob(os.path.join(input_dir, format))
+                if video_files:
+                    audio_extractor()
+                    self.label.setText('Succesfull')
+                    return
+
+        # Запуск проверки
+        check_for_video_files()
 
     #обработчик кнопки для открытия папки инпут
     def in_folder_func(self):
@@ -82,12 +170,14 @@ class Ui_MainWindow(object):
         new_folder_name = 'input'
         new_folder_path = os.path.join(os.getcwd(), new_folder_name)
         subprocess.Popen(f'explorer {new_folder_path}', shell=True)
+        self.label.setText('Unsuccesfull')
 
     #функция для открытия аутпут
     def outputfolder(self):
         new_folder_name = 'output'
         new_folder_path = os.path.join(os.getcwd(), new_folder_name)
         subprocess.Popen(f'explorer {new_folder_path}', shell=True)
+        self.label.setText('Unsuccesfull')
 
 
 if __name__ == "__main__":
